@@ -3,8 +3,8 @@
 # Source: http://kubernetes.io/docs/getting-started-guides/kubeadm/
 
 echo "modify apt source mirror"
-sed -e "s/archive.ubuntu.com/mirrors.ustc.edu.cn/" -i /etc/apt/sources.list
-sed -e "s/security.ubuntu.com/mirrors.ustc.edu.cn/" -i /etc/apt/sources.list
+sed -e "s/archive.ubuntu.com/mirrors.aliyun.com/" -i /etc/apt/sources.list
+sed -e "s/security.ubuntu.com/mirrors.aliyun.com/" -i /etc/apt/sources.list
 
 echo "remove old package"
 apt-get remove -y docker.io kubelet kubeadm kubectl kubernetes-cni
@@ -28,7 +28,7 @@ systemctl enable kubelet && systemctl start kubelet
 echo "modify daemon.json"
 cat > /etc/docker/daemon.json <<EOF
 {
-  "exec-opts": ["native.cgroupdriver=systemd"],
+  "exec-opts": ["native.cgroupdriver=cgroupfs"],
   "log-driver": "json-file",
   "storage-driver": "overlay2",
   "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/", "https://registry.docker-cn.com"]
