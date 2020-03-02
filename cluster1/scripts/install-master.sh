@@ -4,7 +4,7 @@ apt-get install -y etcd-client
 
 kubeadm reset -f
 kubeadm config images pull --image-repository=gcr.azk8s.cn/google_containers
-kubeadm init --image-repository=gcr.azk8s.cn/google_containers --apiserver-advertise-address=$MASTER_IP --pod-network-cidr=$POD_NW_CIDR
+kubeadm init --image-repository=gcr.azk8s.cn/google_containers --kubernetes-version=stable-1.16.3 --apiserver-advertise-address=$MASTER_IP --pod-network-cidr=$POD_NW_CIDR
 kubeadm token create --print-join-command --ttl 0 > /vagrant/tmp/master-join-command.sh
 
 mkdir -p $HOME/.kube
