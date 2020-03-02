@@ -19,7 +19,7 @@ spec:
     - --kubeconfig=/etc/kubernetes/scheduler.conf
     - --leader-elect=false
     - --scheduler-name=kube-scheduler-amazing
-    image: k8s.gcr.io/kube-scheduler:v1.16.3
+    image: gcr.azk8s.cn/google_containers/kube-scheduler:v1.16.3
     imagePullPolicy: IfNotPresent
     name: kube-scheduler-special
     resources:
