@@ -1,22 +1,38 @@
 # Kubernetes CKA Example Environments
 
-## challanges 1:
-
-https://medium.com/@wuestkamp/kubernetes-cka-hands-on-challenge-1-multi-container-issue-5a8c007686ed?source=friends_link&sk=09c7599363ac101fb8ff88b4b63ac917
+基于[Kubernetes CKA Example Environments](https://github.com/wuestkamp/cka-example-environments)，根据国内的网络环境进行了修改。
 
 ## setup and run
-You will start a two node cluster on your machine, one master and one worker. For this you need to install VirtualBox and vagrant, then:
 
+提供两节点的 Kubernetes Cluster 环境，一个 master，一个 worker。Kubernetes 版本 1.6.3，适配当前 CKA 考试版本。增加 worker，或提高虚拟机配置，请编辑 `cluster1\Vagrantfile`
 
+在以下环境中测试通过：
+- OS：
+    - macOS Catalina
+    - Ubuntu 18.04
+    - Windows 10
+- Virtualbox 6.1
+- Vagrant 2.2.7
+
+运行：
 ```
-git clone git@github.com:wuestkamp/cka-example-environments.git
-cd cka-example-environments/cluster1
-./up.sh
+git clone https://github.com/opsdoge/cka-example-env-cn.git
+cd cka-example-env-cn/cluster1
+vagrant up
 
 vagrant ssh cluster1-master1
 vagrant@cluster1-master1:~$ sudo -i
 root@cluster1-master1:~# kubectl get node
 ```
 
-You should be connected as `root@cluster1-master1`. You can connect to other worker nodes using root, like ssh `root@cluster1-worker1`
-If you want to destroy the environment again run `./down.sh`. You should destroy the environment after usage so no more resources are used!
+Windows 用户在 Powershell 下直接运行 `vagrant ssh` 无效，需要先作以下设置:
+```
+$env:VAGRANT_PREFER_SYSTEM_BIN="0"
+```
+
+`vagrant up` 过程中会下载 `ubuntu\bionic64` 这个 box，国内网络环境下可能下载速度不佳，可以选择通过清华大学的开源镜像站下载后，手工添加 box：
+```
+wget https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cloud-images/bionic/current/bionic-server-cloudimg-amd64-vagrant.box
+vagrnat box add ubuntu\bionic64 bionic-server-cloudimg-amd64-vagrant.box
+```
+再进行 `vagrant up` 及后续操作。
