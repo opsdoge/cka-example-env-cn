@@ -4,7 +4,7 @@
 
 ## setup and run
 
-提供两节点的 Kubernetes Cluster 环境，一个 master，一个 worker。Kubernetes 版本 1.6.3，适配当前 CKA 考试版本。增加 worker，或提高虚拟机配置，请编辑 `cluster1\Vagrantfile`
+提供两节点的 Kubernetes Cluster 环境，一个 master，一个 worker。Kubernetes 版本 1.6.3，适配当前 CKA 考试版本。增加 worker，或提高虚拟机配置，请编辑 `cluster1/Vagrantfile`
 
 在以下环境中测试通过：
 - OS：
