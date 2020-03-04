@@ -1,6 +1,6 @@
 # Kubernetes CKA Example Environments
 
-基于[Kubernetes CKA Example Environments](https://github.com/wuestkamp/cka-example-environments)，根据国内的网络环境进行了修改。
+基于[Kubernetes CKA Example Environments](https://github.com/wuestkamp/cka-example-environments)。根据国内的网络环境进行了修改，apt source 及 k8s 各组件安装使用阿里云镜像站，1.16版本后 kubeadm 的 `--image-repository` 参数可自定义控制平面安装的镜像仓库，使用 Azure 国内镜像站 `gcr.azk8s.cn` 替换官方 `k8s.gcr.io`，保证整个环境在无科学上网条件下的部署。
 
 ## setup and run
 
