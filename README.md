@@ -30,9 +30,9 @@ Windows 用户在 Powershell 下直接运行 `vagrant ssh` 无效，需要先作
 $env:VAGRANT_PREFER_SYSTEM_BIN="0"
 ```
 
-`vagrant up` 过程中会下载 `ubuntu\bionic64` 这个 box，国内网络环境下可能下载速度不佳，可以选择通过清华大学的开源镜像站下载后，手工添加 box：
+`vagrant up` 过程中会下载 `ubuntu/bionic64` 这个 box，国内网络环境下可能下载速度不佳，可以选择通过清华大学的开源镜像站下载后，手工添加 box：
 ```
 wget https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cloud-images/bionic/current/bionic-server-cloudimg-amd64-vagrant.box
-vagrnat box add ubuntu\bionic64 bionic-server-cloudimg-amd64-vagrant.box
+vagrnat box add ubuntu/bionic64 bionic-server-cloudimg-amd64-vagrant.box
 ```
 再进行 `vagrant up` 及后续操作。
